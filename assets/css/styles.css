@@ -7,23 +7,25 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
+  /* You can change the seconday colour here, first hue,
+  sat and lig, also remember to changer the lig of the first colour alt */
   /*
         Purple: hsl(250, 66%, 75%)
         Blue: hsl(207, 90%, 72%)
         Pink: hsl(356, 66%, 75%)
         Teal: hsl(174, 63%, 62%)
   */
-  --first-hue: 250;
-  --sat: 66%;
-  --lig: 75%;
+  --first-hue: 174;
+  --sat: 63%;
+  --lig: 62%;
   --second-hue: 219;
   --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
-  --first-color-alt: hsl(var(--first-hue), var(--sat), 71%); /* -4% */
+  --first-color-alt: hsl(var(--first-hue), var(--sat), 58%); /* -4% */
   --title-color: hsl(var(--second-hue), 15%, 95%);
   --text-color: hsl(var(--second-hue), 8%, 75%);
   --text-color-light: hsl(var(--second-hue), 4%, 55%);
   --body-color: hsl(var(--second-hue), 48%, 8%);
-  --container-color: hsl(var(--second-hue), 32%, 12%);
+  --container-color: hsl(var(--second-hue), 32%, 13%);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -50,13 +52,14 @@
 /* Responsive typography */
 @media screen and (min-width: 968px) {
   :root {
-    --biggest-font-size: 2.5rem;
-    --h1-font-size: 2.25rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 1.25rem;
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 1.8rem;
+    --h3-font-size: 1.4rem;
     --normal-font-size: 1rem;
-    --small-font-size: 0.875rem;
+    --small-font-size: 0.95rem;
     --smaller-font-size: 0.813rem;
+    --tiny-font-size: 0.7rem;
   }
 }
 
@@ -82,7 +85,7 @@ textarea {
 body {
   background-color: var(--body-color);
   color: var(--text-color);
-  transition: 0.4s; /* for light mode animation */
+  transition: 0.6s ease-in; /* for light/dark theme  */
 }
 
 h1,
@@ -112,13 +115,81 @@ img {
 }
 
 /*=============== THEME ===============*/
+.change-theme {
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
 
-/*========== Variables Dark theme ==========*/
+.change-theme:hover {
+  color: var(--first-color);
+}
+
+/*========== Variables Light theme ==========*/
+body.light-theme {
+  --title-color: hsl(var(--second-hue), 15%, 15%);
+  --text-color: hsl(var(--second-hue), 8%, 35%);
+
+  --body-color: hsl(var(--second-hue), 100%, 99%);
+  --container-color: #fff;
+}
 
 /*========== 
     Color changes in some parts of 
     the website, in light theme
 ==========*/
+
+.light-theme .scroll-header {
+  box-shadow: 0 2px 4px hsla(0, 0%, 1%, 0.1);
+}
+
+.light-theme .nav__menu {
+  background-color: hsla(var(--second-hue), 32%, 90%, 0.8);
+}
+
+.light-theme .section__subtitle {
+  color: var(--text-color);
+}
+
+.light-theme .home__social-link {
+  box-shadow: 0 2px 8px hsla(var(--second-hue), 48%, 8%, 0.1);
+}
+.light-theme .portfolio__home--social::after,
+.light-theme .footer__social-link {
+  background-color: var(--title-color);
+}
+
+.light-theme .home__social-link,
+.light-theme .portfolio__home--scroll,
+.light-theme .button,
+.light-theme .button:hover,
+.light-theme .active-work,
+.light-theme .footer__title,
+.light-theme .footer__link,
+.light-theme .footer__copy {
+  color: var(--title-color);
+}
+
+.light-theme .about__box {
+  box-shadow: 0 2px 8px hsla(var(--second-hue), 48%, 8%, 0.1);
+}
+.light-theme .skills__content,
+.light-theme .services__card,
+.light-theme .work__card,
+.light-theme .testimonial__card,
+.light-theme .contact__card {
+  box-shadow: 0 2px 8px hsla(var(--second-hue), 48%, 8%, 0.1);
+}
+
+.light-theme::-webkit-scrollbar {
+  background-color: hsl(var(--second-hue), 8%, 66%);
+}
+.light-theme::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--second-hue), 8%, 54%);
+}
+.light-theme::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--second-hue), 8%, 44%);
+}
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
@@ -165,6 +236,7 @@ img {
   width: 100%;
   background-color: var(--body-color);
   z-index: var(--z-fixed);
+  transition: 1.5s ease-in-out; /* for light/dark theme  */
 }
 .portfolio__header-nav {
   height: var(--header-height);
@@ -191,6 +263,7 @@ img {
   border-radius: 4rem;
   padding: 1rem 2.25rem;
   backdrop-filter: blur(10px);
+  transition: 1.2s ease-in-out; /* for light/dark theme  */
 }
 
 .nav__list {
@@ -215,6 +288,7 @@ img {
     hsla(var(--first-hue), var(--sat), var(--lig), 0.2)
   );
   box-shadow: 0 0 16px hsla(var(--first-hue), var(--sat), var(--lig), 0.4);
+  color: var(--title-color);
 }
 
 /* Change background header see main.js */
@@ -296,7 +370,7 @@ img {
 .home__social-link {
   width: max-content;
   background-color: var(--container-color);
-  color: var(var(--first-color));
+  color: var(--first-color);
   padding: 0.25rem;
   border-radius: 0.25rem;
   display: flex;
@@ -746,6 +820,286 @@ img {
 }
 
 /*=============== FOOTER ===============*/
+.portfolio__footer {
+  background-color: var(--first-color);
+}
+
+.portfolio__footer-container {
+  padding: 2rem 0 6rem;
+}
+
+.footer__title,
+.footer__link {
+  color: var(--body-color);
+}
+
+.footer__title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.footer__list {
+  display: flex;
+  justify-content: center;
+  column-gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  column-gap: 1.25rem;
+}
+
+.footer__social-link {
+  background-color: var(--body-color);
+  color: var(--first-color);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  display: inline-flex;
+}
+
+.footer__copy {
+  display: block;
+  margin-top: 4.5rem;
+  color: var(--container-color);
+  text-align: center;
+  font-size: var(--smaller-font-size);
+}
+
 /*=============== SCROLL BAR ===============*/
-/*=============== BREAKPOINTS ===============*/ /* For small devices */
-/* For medium devices */ /* For large devices */ ;
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: hsl(var(--second-hue), 8%, 38%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--second-hue), 8%, 26%);
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--second-hue), 8%, 20%);
+}
+/*=============== BREAKPOINTS ===============*/
+
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .nav__menu {
+    padding: 1 rem 1.5rem;
+  }
+  .home__buttons {
+    flex-direction: column;
+  }
+  .portfolio__home--handle {
+    width: 150px;
+    height: 252px;
+  }
+  .home__img {
+    width: 130px;
+  }
+  .about__info {
+    grid-template-columns: (2, 1fr);
+  }
+
+  .skills__box {
+    column-gap: 1rem;
+  }
+
+  .skills__name {
+    font-size: var(--small-font-size);
+  }
+  .portfolio__services-container {
+    grid-template-columns: 145px;
+    justify-content: center;
+  }
+  .work__item {
+    font-size: var(--small-font-size);
+  }
+  .work__filters {
+    column-gap: 0.25rem;
+  }
+}
+
+/* For medium devices */
+
+@media screen and (min-width: 576px) {
+  .nav__menu {
+    width: 325px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  .about__info {
+    grid-template-columns: repeat(2, 210px);
+    justify-content: center;
+  }
+  .about__description {
+    padding: 0 5rem;
+  }
+
+  .portfolio__skills-container {
+    justify-content: center;
+  }
+
+  .skills__content {
+    padding: 2rem 4rem;
+  }
+
+  .portfolio__services-container {
+    grid-template-columns: repeat(2, 160px);
+    justify-content: center;
+  }
+
+  .services__modal-content {
+    width: 500px;
+    padding: 4.5rem 2.5rem 2.5rem;
+  }
+
+  .services__modal-description {
+    padding: 0 3.5rem;
+  }
+
+  .portfolio__work-container {
+    justify-content: center;
+  }
+
+  .work__img {
+    width: 300px;
+  }
+
+  .contact__info {
+    grid-template-columns: 300px;
+    justify-content: center;
+  }
+
+  .contact__form {
+    width: 360px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .portfolio__work-container {
+    grid-template-columns: repeat(2, max-content);
+  }
+  .portfolio__contact-container {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    column-gap: 3rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 990px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 6.5rem 0 1rem;
+  }
+
+  .section__title {
+    margin-bottom: 3.2rem;
+  }
+
+  .portfolio__header-nav {
+    height: calc(var(--header-height)+ 1rem);
+  }
+
+  .portfolio__home--handle {
+    width: 290px;
+    height: 380px;
+  }
+  .home__img {
+    width: 220px;
+  }
+
+  .home__social-link {
+    padding: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .portfolio__home--social::after {
+    transform: rotate(90deg) translate(16px, 0);
+  }
+
+  .home__scroll-icon {
+    font-size: 2rem;
+  }
+
+  .portfolio__about--container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 4rem;
+  }
+
+  .about__img {
+    width: 350px;
+  }
+
+  .about__data {
+    text-align: initial;
+  }
+  .about__info {
+    justify-content: initial;
+  }
+
+  .about__box {
+    text-align: center;
+    padding: 1rem 1.25rem;
+  }
+
+  .about__description {
+    padding: 0 4rem 0 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .portfolio__skills-container {
+    grid-template-columns: repeat(2, 350px);
+    column-gap: 3rem;
+  }
+
+  .portfolio__services-container {
+    grid-template-columns: repeat(3, 192px);
+    column-gap: 3rem;
+  }
+  .services__card {
+    padding: 5rem 2rem 1.5rem;
+  }
+
+  .portfolio__work-container {
+    gap: 3rem;
+  }
+  .work__card {
+    padding: 1.25rem;
+  }
+  .work__img {
+    margin-bottom: 1rem;
+  }
+  .work__title {
+    margin-bottom: 0.5rem;
+  }
+  .portfolio__testimonial-container {
+    width: 750px;
+  }
+
+  .testimonial__card {
+    padding: 1.5rem 2rem;
+  }
+
+  .portfolio__contact-container {
+    column-gap: 6rem;
+  }
+
+  .footer__social-link {
+    font-size: 1.25rem;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+  }
+}
