@@ -8,13 +8,13 @@
 
 #Websites
 
-- (https://boxicons.com/)
-  -(https://colors.dopely.top/)
-  -(https://colors.dopely.top/color-pedia)
-  -(https://www.kunkalabs.com/mixitup/) for the projects section
-  -(https://swiperjs.com/) - for the testimonial section
-  -(https://scrollrevealjs.org) - scroll reveal on the about section
-  -(https://github.com/bedimcode/responsive-watches-website) for the Javascript responsive code
+-(https://boxicons.com/)
+-(https://colors.dopely.top/)
+-(https://colors.dopely.top/color-pedia)
+-(https://www.kunkalabs.com/mixitup/) for the projects section
+-(https://swiperjs.com/) - for the testimonial section
+-(https://scrollrevealjs.org) - scroll reveal on the about section
+-(https://github.com/bedimcode/responsive-watches-website) for the Javascript responsive code
 
 ## To Do
 
