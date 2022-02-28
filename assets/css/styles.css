@@ -1,5 +1,5 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -29,7 +29,7 @@
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: "Poppins", sans-serif;
+  --body-font: 'Poppins', sans-serif;
   --biggest-font-size: 1.75rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
@@ -320,6 +320,12 @@ body.light-theme {
   color: var(--title-color);
   margin-bottom: 0.2rem;
 }
+.home__logo {
+  margin: -45px auto;
+}
+.home__imglogo {
+  width: 240px;
+}
 
 .home__education {
   color: var(--text-color);
@@ -383,7 +389,7 @@ body.light-theme {
   color: #fff;
 }
 .portfolio__home--social::after {
-  content: "";
+  content: '';
   width: 32px;
   height: 2px;
   background-color: var(--first-color);
@@ -652,6 +658,12 @@ body.light-theme {
   background-color: var(--container-color);
   padding: 1rem;
   border-radius: 1rem;
+}
+.imgcontainer {
+  height: 185px;
+  overflow: hidden;
+  border-radius: 1rem;
+  margin-bottom: 20px;
 }
 
 .work__img {
@@ -1065,12 +1077,16 @@ body.light-theme {
     column-gap: 3rem;
   }
 
+  .skills__content {
+    padding: 2rem 1.5rem;
+  }
+
   .portfolio__services-container {
-    grid-template-columns: repeat(3, 192px);
-    column-gap: 3rem;
+    grid-template-columns: repeat(2, 200px);
+    column-gap: 5rem;
   }
   .services__card {
-    padding: 5rem 2rem 1.5rem;
+    padding: 3rem 2rem 1.5rem;
   }
 
   .portfolio__work-container {
