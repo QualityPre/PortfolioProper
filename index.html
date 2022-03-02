@@ -700,29 +700,33 @@
             </div>
           </div>
           <div class="contact__content">
-            <h3 class="contact__title">Contact me(not currently functional)</h3>
+            <h3 class="contact__title" name="contact" netlify>Contact me</h3>
             <form action="" class="contact__form">
               <div class="contact__form-div">
-                <label for="" class="contact__form-tag">Name</label>
+                <label for="name" class="contact__form-tag">Name</label>
                 <input
                   type="text"
                   placeholder="Name"
                   class="contact__form-input"
+                  name="name"
+                  required
                 />
               </div>
               <div class="contact__form-div">
-                <label for="" class="contact__form-tag">E-mail</label>
+                <label for="email" class="contact__form-tag">E-mail</label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="e-mail"
                   class="contact__form-input"
+                  required
                 />
               </div>
               <div class="contact__form-div contact__form-area">
-                <label for="" class="contact__form-tag">Query</label>
+                <label for="query" class="contact__form-tag">Query</label>
                 <textarea
-                  name=""
-                  id=""
+                  name="query"
+                  id="query"
                   cols="30"
                   rows="10"
                   placeholder="Your query/project/idea?"
